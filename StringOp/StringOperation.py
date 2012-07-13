@@ -5,7 +5,7 @@ class StringOp:
     words = []
     def __init__(self):
         self.words = self.load_words()
-        print(len(self.words))
+        print("Il y a {0} mots dans le dico.".format(len(self.words)))
         
     def load_words(self):
         time_ = time.time()
@@ -65,3 +65,7 @@ class StringOp:
                 if match : match_words.append(word)   
         print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
         return match_words               
+    def word_inside(self,searched_word):
+        upper_word = self.no_accent(searched_word).upper()
+        rex_word = re.compile(".{1,}" + upper_word +".{1,}")
+        return [word  for word in self.words if re.match(rex_word,word)]

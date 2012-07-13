@@ -3,6 +3,6 @@
 from StringOperation import StringOp
 
 str_op = StringOp()
-for e in str_op.starts_with(input()):
+for e in str_op.word_inside((input())):
     print(e)
 input()
