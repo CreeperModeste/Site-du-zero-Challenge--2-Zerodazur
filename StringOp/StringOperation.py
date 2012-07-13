@@ -8,9 +8,11 @@ class StringOp:
         print(len(self.words))
         
     def load_words(self):
+        time_ = time.time()
         with open("mots.txt",encoding="utf8") as fichier:
             str_words = fichier.read()
         fichier.close()
+        print("Durée de lecture du fichier :",time.time() - time_)
         return [line for line in str_words.split("\n")]
     
     def no_accent(self, string):
