@@ -1,6 +1,5 @@
 # -*-coding:Utf-8 -*
 import re,time,unicodedata
-from no_accent import no_accent
 class StringOp:
     
     words = []
@@ -13,6 +12,9 @@ class StringOp:
             str_words = fichier.read()
         fichier.close()
         return [line for line in str_words.split("\n")]
+    
+    def no_accent(self, string):
+        return unicodedata.normalize('NFKD', string).encode('ASCII', 'ignore').decode('Utf-8')
         
     def mots_croises(self):
         searched_word = input("Indiquez le mot à trouver :")
@@ -24,13 +26,13 @@ class StringOp:
     def starts_with(self,searched_word):
         print("Début de l'algo !")
         debut = time.time()
-        searched_word = no_accent(searched_word).upper()
+        searched_word = self.no_accent(searched_word).upper()
         match_words = []
         for word in self.words:
             i = 0
             if len(word) > len(searched_word):
                 while i < len(searched_word):
-                    if no_accent(word[i]) == searched_word[i]:
+                    if self.no_accent(word[i]) == searched_word[i]:
                         match = True
                     else: 
                         match = False
@@ -43,7 +45,7 @@ class StringOp:
     def ends_with(self,searched_word):
         print("Début de l'algo !")
         debut = time.time()
-        searched_word = no_accent(searched_word).upper()
+        searched_word = self.no_accent(searched_word).upper()
         match_words = []
         for word in self.words:
             if len(word) > len(searched_word):
@@ -51,7 +53,7 @@ class StringOp:
                 i = len(word) - len(searched_word)
                 match = False
                 while y < len(searched_word):
-                    if no_accent(word[i]) == searched_word[y]:
+                    if self.no_accent(word[i]) == searched_word[y]:
                         match = True
                     else: 
                         match = False
