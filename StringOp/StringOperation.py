@@ -18,9 +18,8 @@ class StringOp:
     def no_accent(self, string):
         return unicodedata.normalize('NFKD', string).encode('ASCII', 'ignore').decode('Utf-8')
         
-    def mots_croises(self):
-        searched_word = input("Indiquez le mot à trouver :")
-        upper_word = searched_word.upper()
+    def mots_croises(self,searched_word):
+        upper_word = self.no_accent(searched_word).upper()
         print(upper_word)
         exp_word = re.compile(upper_word.replace("*", "."))
         return [word  for word in self.words if re.match(exp_word,word) and len(word) == len(upper_word)]
