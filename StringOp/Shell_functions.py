@@ -13,6 +13,9 @@ def help():
     print("starts : affiche tous les mots \
 commencant une chaîne.")
     print("ends : affiche tous les mots finnissant par une chaîne.")
+    print("inside : affiche tous les contenant une chaîne.")
+    print("croises : resolveur de mots croisés( remplacer les\
+lettres que vous ne savez pas par des astérisques. Ex : chat -> c**t)")
     
 def choix(operation):
     list_words = []
