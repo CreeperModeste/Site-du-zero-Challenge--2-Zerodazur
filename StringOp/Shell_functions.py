@@ -1,5 +1,5 @@
 # -*-conding:Utf-8 -*
-from StringOperation import *
+from StringOperation import StringOp
 strop = StringOp()
 
 
@@ -8,7 +8,7 @@ def print_words(list_words):
     for word in list_words:
         print(word)
     
-def help():
+def print_help():
     print("Liste des commandes disponibles :")
     print("starts : affiche tous les mots \
 commencant une chaîne.")
