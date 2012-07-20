@@ -14,3 +14,4 @@ while True:
     elif choice == "ends": choix("ends")
     elif choice == "inside": choix("inside")
     elif choice == "croises": choix("croises")
+    elif choice == "exit": exit(0)

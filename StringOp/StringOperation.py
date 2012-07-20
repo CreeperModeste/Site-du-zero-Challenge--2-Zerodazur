@@ -63,8 +63,17 @@ class StringOp:
                     y += 1
                 if match : match_words.append(word)   
         print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
-        return match_words               
+        return match_words        
+           
     def word_inside(self,searched_word):
         upper_word = self.no_accent(searched_word).upper()
         rex_word = re.compile(".{1,}" + upper_word +".{1,}")
         return [word  for word in self.words if re.match(rex_word,word)]
+    
+    def palindromes(self):
+        match_word = []
+        for w in self.words:
+            iw = w[::-1] 
+            if iw == w: match_word.append(w)
+        return match_word
+            
