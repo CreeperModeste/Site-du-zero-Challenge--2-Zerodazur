@@ -74,6 +74,6 @@ class StringOp:
         match_word = []
         for w in self.words:
             iw = w[::-1] 
-            if iw == w: match_word.append(w)
+            if self.no_accent(iw) == self.no_accent(w): match_word.append(w)
         return match_word
             
