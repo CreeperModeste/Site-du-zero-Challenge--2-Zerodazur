@@ -77,9 +77,16 @@ class StringOp:
             if self.no_accent(iw) == self.no_accent(w): match_word.append(w)
         return match_word
     
+    def correction(self, searched_word):
+        match_word = []
+        for w in self.words:
+            if self.lev(w, self.no_accent(searched_word.upper())) == 1:
+                match_word.append(w)
+        return match_word
+    
     def lev(self,s,t):
-        s = ' ' + s
-        t = ' ' + t
+        s = self.no_accent(' ' + s)
+        t = self.no_accent(' ' + t)
         d = {}
         S = len(s)
         T = len(t)
