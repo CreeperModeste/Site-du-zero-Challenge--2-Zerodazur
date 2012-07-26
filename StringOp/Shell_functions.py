@@ -16,6 +16,8 @@ commençant une chaîne.")
     print("croises : resolveur de mots croisés( remplacer les\
  lettres que vous ne savez pas par des astérisques. Ex : chat -> c**t).")
     print("palindromes : cherche tous les palindrome du dictionnaire.")
+    print("correction : rentrez un mot et il revoie tous les mots correspondant avec\
+    une fautes de frape.")
     
 
     
