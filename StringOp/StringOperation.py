@@ -1,18 +1,20 @@
 # -*-coding:Utf-8 -*
+
+# Les lingnes qui servent à calculer le temps des algos ont été mise en commentaires.
 import re,time,unicodedata
 class StringOp:
     
     words = []
     def __init__(self):
         self.words = self.load_words()
-        print("Il y a {0} mots dans le dico.".format(len(self.words)))
+#        print("Il y a {0} mots dans le dico.".format(len(self.words)))
         
     def load_words(self):
-        time_ = time.time()
+#        time_ = time.time()
         with open("mots.txt",encoding="utf8") as fichier:
             str_words = fichier.read()
         fichier.close()
-        print("Durée de lecture du fichier :",time.time() - time_)
+#        print("Durée de lecture du fichier :",time.time() - time_)
         return [line for line in str_words.split("\n")]
     
     def no_accent(self, string):
@@ -25,8 +27,8 @@ class StringOp:
         return [word  for word in self.words if re.match(exp_word,word) and len(word) == len(upper_word)]
     
     def starts_with(self,searched_word):
-        print("Début de l'algo !")
-        debut = time.time()
+#        print("Début de l'algo !")
+#        debut = time.time()
         searched_word = self.no_accent(searched_word).upper()
         match_words = []
         for word in self.words:
@@ -40,12 +42,12 @@ class StringOp:
                         break
                     i += 1
                 if match : match_words.append(word)   
-        print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
+#        print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
         return match_words
              
     def ends_with(self,searched_word):
-        print("Début de l'algo !")
-        debut = time.time()
+#        print("Début de l'algo !")
+#        debut = time.time()
         searched_word = self.no_accent(searched_word).upper()
         match_words = []
         for word in self.words:
@@ -62,7 +64,7 @@ class StringOp:
                     i += 1
                     y += 1
                 if match : match_words.append(word)   
-        print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
+#        print("Durée de l'algo :",time.time() - debut,"seconde(s).") 
         return match_words        
            
     def word_inside(self,searched_word):
@@ -84,6 +86,7 @@ class StringOp:
                 match_word.append(w)
         return match_word
     
+# J'avoue c'est pas moi qui a fait cette fonction :-°    
     def lev(self,s,t):
         s = self.no_accent(' ' + s)
         t = self.no_accent(' ' + t)

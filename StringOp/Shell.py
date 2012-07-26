@@ -10,8 +10,7 @@ strop = StringOp()
 
 while True:
     choice = input("$>")
-    dict_func = {"help":"",
-                 "starts": strop.starts_with,
+    dict_func = {"starts": strop.starts_with,
                  "ends": strop.ends_with,
                  "inside": strop.word_inside,
                  "croises": strop.mots_croises,
@@ -21,11 +20,15 @@ while True:
     dict_func["i"] = dict_func["inside"]
     dict_func["c"] = dict_func["correction"]
     dict_func["cr"] = dict_func["croises"]
+    
     if choice in dict_func.keys():
         arg = input("Chaîne à rechercher : ")
         list_words = dict_func[choice](arg)
     elif choice == "palindromes" or choice == "palindrome" or choice == "p":
         list_words = strop.palindromes()
+    elif choice == "help" or choice == "h":
+        print_help()
+        continue
     else: 
         print("Commande inconue !")
         continue
