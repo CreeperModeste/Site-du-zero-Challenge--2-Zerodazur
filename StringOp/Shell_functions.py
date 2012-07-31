@@ -17,7 +17,7 @@ commençant une chaîne.")
  lettres que vous ne savez pas par des astérisques. Ex : chat -> c**t).")
     print("palindromes (ou p): cherche tous les palindrome du dictionnaire.")
     print("correction (ou c): rentrez un mot et il revoie tous les mots correspondant avec\
- une fautes de frape.")
+ une fautes de frape(peut prendre un peu de temps !).")
     
 
     
